@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--核心配置文件-->
+<configuration>
+    <!--引入外部配置文件-->
+    <properties resource="data_source.properties">
+
+    </properties>
+    <!--可以给实体类起别名-->
+    <typeAliases>
+<!--
+        <typeAlias type="com.esb.pojo.User" alias="User"/>
+-->
+        <!--扫描指定包下的所有javabean，在没有指定注解的情况下去类名首字母小写的名称作为别名
+        在javabean本多的情况下十分方别，如果有注解则用注解的值作为别名-->
+        <package name="com.esb.pojo" />
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/><!--默认jdbc事务管理-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${user}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+        <!--<environment id="development">
+            <transactionManager type="JDBC"/>&lt;!&ndash;默认jdbc事务管理&ndash;&gt;
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://82.157.176.243:3306/wechat?characterEncoding=utf-8&amp;serverTimezone=GMT%2B8&amp;useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>-->
+        <environment id="test"><!--配置测试环境，更改默认配置为test-->
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://82.157.176.243:3306/wechat?characterEncoding=utf-8&amp;serverTimezone=GMT%2B8&amp;useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/esb/dao/UserMapping.xml"/>
+    </mappers>
+
+</configuration>
