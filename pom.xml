@@ -16,6 +16,11 @@
         <module>springStudy-03</module>
         <module>springStudy-04-AOP</module>
         <module>springStudy-05-mybatis</module>
+        <module>springStudy-07-springmvc</module>
+        <module>springStudy-08-servlet</module>
+        <module>springStudy-09-springmvcAnnotation</module>
+        <module>springStudy-10-springMvcRestful</module>
+        <module>springStudy-11-Interceptor</module>
     </modules>
     <!--父工程-->
     <dependencies>

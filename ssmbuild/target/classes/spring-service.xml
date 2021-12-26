@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--扫描service下的包-->
+    <context:component-scan base-package="com.esb.service"/>
+    <!--将所有的service注入进来,注解实现了-->
+    <bean id="BookserviceImpl" class="com.esb.service.BookserviceImpl">
+        <property name="bookMapper" ref="bookMapper"/>
+    </bean>
+    <!--&lt;!&ndash;声明式事务&ndash;&gt;-->
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<constructor-arg name="dataSource" ref="dataSource" />-->
+    <!--</bean>-->
+</beans>
